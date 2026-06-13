@@ -89,7 +89,7 @@ html{
 
 
 .hero{
-    height:100vh;
+    min-height:100svh;
     position:relative;
     overflow:hidden;
 }
@@ -246,15 +246,14 @@ nav ul li a:hover{
 }
 
 .purosangue img{
-    width:90%;
+    width:100%;
     max-width:1400px;
-    padding-left: 100px;
+    display:block;
 }
 .image-wrapper{
-    overflow:hidden;
     width:90%;
     max-width:1400px;
-    
+    margin:auto;
 }
 
 
@@ -329,7 +328,7 @@ nav ul li a:hover{
     margin-top:20px;
 }
 .cinematic{
-    height:100vh;
+    min-height:100svh;
     position:relative;
     overflow:hidden;
 
@@ -369,7 +368,7 @@ nav ul li a:hover{
 
 
 .interior{
-    min-height:100vh;
+    min-height:100svh;
 
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -413,7 +412,7 @@ nav ul li a:hover{
 
 
 .engine-showcase{
-    min-height:100vh;
+    min-height:100svh;
     background:#050505;
 
     display:flex;
@@ -595,7 +594,7 @@ nav ul li a:hover{
 
 
 .final-cta{
-    min-height:100vh;
+    min-height:100svh;
 
     display:flex;
     flex-direction:column;
@@ -694,23 +693,31 @@ nav ul li a:hover{
    MOBILE DEVICES
 ====================== */
 
-@media (max-width: 768px){
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media screen and (max-width:768px){
+
+    /* NAV */
 
     nav{
         padding:20px;
     }
 
     nav ul{
-        gap:20px;
+        gap:18px;
     }
 
     nav ul li{
-        font-size:14px;
+        font-size:13px;
     }
 
     .logo img{
-        width:35px;
+        width:32px;
     }
+
+    /* HERO */
 
     .hero-content{
         left:20px;
@@ -720,7 +727,6 @@ nav ul li a:hover{
 
     .hero-content h1{
         font-size:3rem;
-        max-width:100%;
     }
 
     .hero-content p{
@@ -728,60 +734,87 @@ nav ul li a:hover{
         font-size:14px;
     }
 
-    .hero-content button{
-        padding:12px 24px;
-    }
-
-}
-
-@media (max-width:768px){
+    /* PUROSANGUE */
 
     .purosangue{
         padding:80px 20px;
     }
 
     .purosangue h2{
-        font-size:2.5rem;
-    }
-
-    .car-name{
-        font-size:12px;
+        font-size:2.4rem;
     }
 
     .image-wrapper{
         width:100%;
     }
 
-}
+    .car-image{
+        transform:none;
+    }
 
-@media (max-width:768px){
+    /* STATS */
 
     .stats{
         grid-template-columns:1fr;
-
         gap:60px;
-
         padding:100px 20px;
-    }
-
-    .stat h3{
-        font-size:4rem;
     }
 
     .stats-header h2{
         font-size:2.5rem;
     }
 
-}
+    .stat h3{
+        font-size:4rem;
+    }
 
-@media (max-width:768px){
+    /* CINEMATIC */
 
-    .parallax-content h2{
+    .cinematic-content h2{
         font-size:2.5rem;
     }
 
-    .parallax-content span{
-        font-size:12px;
+    /* INTERIOR */
+
+    .interior{
+        grid-template-columns:1fr;
+        gap:50px;
+        padding:80px 20px;
+    }
+
+    .interior-left h2{
+        font-size:2.5rem;
+    }
+
+    /* ENGINE */
+
+    .engine-showcase{
+        padding:100px 20px;
+    }
+
+    .engine-content h2{
+        font-size:2.5rem;
+    }
+
+    .engine-wrapper{
+        width:100%;
+    }
+
+    /* GALLERY */
+
+    .gallery-title h2{
+        font-size:3rem;
+    }
+
+    /* FINAL CTA */
+
+    .final-cta h2{
+        font-size:2.8rem;
+    }
+
+    .footer-contact{
+        flex-direction:column;
+        gap:20px;
     }
 
 }
