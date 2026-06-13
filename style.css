@@ -3,6 +3,16 @@
     padding:0;
     box-sizing:border-box;
 }
+
+:root{
+    --fs-xl: clamp(3rem, 8vw, 7rem);
+    --fs-lg: clamp(2rem, 5vw, 5rem);
+    --fs-md: clamp(1.5rem, 3vw, 3rem);
+
+    --section-padding-y: clamp(80px, 8vw, 150px);
+    --section-padding-x: clamp(20px, 6vw, 10%);
+}   
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -13,10 +23,14 @@ body{
     color:white;
     font-family:Arial, sans-serif;
     overflow-x:hidden;
+    
+    width:100%;
 }
 html{
     scroll-behavior:smooth;
     scroll-padding-top:100px;
+    overflow-x:hidden;
+    width:100%;
 }
 .loader{
     position:fixed;
@@ -122,11 +136,74 @@ html{
     z-index:-1;
 }
 
+.menu-toggle{
+    display:none;
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+    color:white;
+}
+
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100vw;
+
+    height:100vh;
+
+    margin:0;
+    padding:120px 20px 40px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+
+    gap:30px;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    transform:translateY(-100%);
+
+    opacity:0;
+
+    transition:.5s;
+
+    overflow-x:hidden;
+}
+
+    .nav-links.active{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    nav ul li{
+        font-size:1.2rem;
+    }
+
+}
+
 nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:20px 42px;
+    
 }
 .logo img{
     width:44px;
@@ -183,6 +260,7 @@ nav ul li a:hover{
     color:#ff2800;
     font-size:28px;
     font-weight:bold;
+    
 }
 
 .hero-content{
@@ -193,14 +271,14 @@ nav ul li a:hover{
 }
 
 .hero-content h1{
-    font-size:6rem;
-    line-height:1;
+    font-size:var(--fs-xl);
+    line-height:.95;
     max-width:700px;
 }
 
 .hero-content p{
     margin-top:20px;
-    width:500px;
+    width:min(500px,100%);
     color:#ccc;
 }
 
@@ -220,7 +298,7 @@ nav ul li a:hover{
     width:900px;
 }
 .purosangue{
-    min-height:100vh;
+   min-height:100svh;
     background:#050505;
 
     display:flex;
@@ -230,7 +308,7 @@ nav ul li a:hover{
 
     text-align:center;
 
-    padding:120px 10%;
+    padding:var(--section-padding-y) var(--section-padding-x);
 }
 
 .car-name{
@@ -239,7 +317,7 @@ nav ul li a:hover{
 }
 
 .purosangue h2{
-   font-size:4rem;
+   font-size:var(--fs-lg);
     line-height:1.05;
     max-width:1200px;
     margin:30px 0 80px;
@@ -269,14 +347,14 @@ nav ul li a:hover{
     min-height:120vh;
 }
 .stats{
-    min-height:100vh;
+    min-height:100svh;
 
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
-    gap:120px;
+    gap:clamp(40px,6vw,120px);
 
-    padding:150px 12%;
+    padding:var(--section-padding-y) var(--section-padding-x);
 
     background:#000;
 }
@@ -288,7 +366,7 @@ nav ul li a:hover{
 }
 
 .stat h3{
-    font-size:7rem;
+    font-size:clamp(3rem,10vw,7rem);
     font-weight:700;
     line-height:1;
 }
@@ -324,7 +402,7 @@ nav ul li a:hover{
 }
 
 .stats-header h2{
-    font-size:4rem;
+    font-size:var(--fs-lg);
     margin-top:20px;
 }
 .cinematic{
@@ -362,7 +440,7 @@ nav ul li a:hover{
 }
 
 .cinematic-content h2{
-    font-size:6rem;
+    font-size:var(--fs-xl);
     margin-top:20px;
 }
 
@@ -371,13 +449,15 @@ nav ul li a:hover{
     min-height:100svh;
 
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
 
     align-items:center;
 
-    gap:100px;
+    gap:clamp(40px,6vw,100px);
 
-    padding:120px 10%;
+    padding:var(--section-padding-y) var(--section-padding-x);
 
     background:#050505;
 }
@@ -388,7 +468,7 @@ nav ul li a:hover{
 }
 
 .interior-left h2{
-    font-size:4rem;
+    font-size:var(--fs-lg);
     margin:20px 0;
 }
 
@@ -441,7 +521,7 @@ nav ul li a:hover{
 }
 
 .engine-content h2{
-    font-size:5rem;
+    font-size:var(--fs-lg);
     line-height:1;
     margin:25px 0;
 }
@@ -456,7 +536,7 @@ nav ul li a:hover{
 .engine-wrapper{
     position:relative;
 
-    width:70%;
+    width:min(90%,850px);
     max-width:850px;
 
     margin-top:80px;
@@ -468,7 +548,8 @@ nav ul li a:hover{
 }
 
 .engine-image{
-    width:70%;
+    width:70%; 
+    /* well see this one out */
     display:block;
 
     margin:0 auto;
@@ -576,7 +657,7 @@ nav ul li a:hover{
 }
 
 .gallery-title h2{
-    font-size:7rem;
+    font-size:clamp(2rem,8vw,7rem);
 
     font-weight:500;
 
@@ -618,7 +699,7 @@ nav ul li a:hover{
 }
 
 .final-cta h2{
-    font-size:6rem;
+    font-size:var(--fs-xl);
 
     line-height:.95;
 
@@ -701,12 +782,18 @@ nav ul li a:hover{
 
     /* NAV */
 
+    
+
     nav{
         padding:20px;
+        flex-wrap:wrap;
+        gap:20px;
     }
 
     nav ul{
         gap:18px;
+        width:100%;
+        justify-content:center;
     }
 
     nav ul li{
